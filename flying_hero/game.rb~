@@ -1,5 +1,6 @@
 require 'gosu'
 require_relative 'background'
+require_relative 'hero'
 
 class Game < Gosu::Window
 	def initialize  
@@ -10,12 +11,17 @@ class Game < Gosu::Window
 	
 	def draw
 		@background.draw
+		@hero.draw
 	end
 
 	def button_down(id)
 		if id == Gosu::KbEscape
 		   close
 		end
+	end
+
+	def update
+	    @background.scroll!
 	end
 
 	
