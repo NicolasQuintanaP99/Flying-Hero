@@ -8,6 +8,7 @@ class Hero
 	    @height = @sprites.first.height
 	    @y = 250
 	    @x = 10
+	    
 	end
 	
 	def draw
@@ -15,9 +16,11 @@ class Hero
 	    sprite.draw(@x, @y, 1)
 	end
 
-	def update
-	    @y -= 1 if button_down?(Gosu::KbUp)
-	    @y += 1 if button_down?(Gosu::KbDown)
-	    sprite.draw(@x, @y, 1)
+	def move_up!
+	    @y -= 1 if (@y >= 0)
+	end
+
+	def move_down!(height)
+	    @y += 1 if (@y <= height - @height)
 	end
 end
