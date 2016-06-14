@@ -17,6 +17,12 @@ class Game < Gosu::Window
 		   close
 		end
 	end
+
+	def update
+	    @background.scroll!
+	end
+
+	
 end
 
 
