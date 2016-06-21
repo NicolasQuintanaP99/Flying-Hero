@@ -5,23 +5,16 @@ SCROLL_SPEED = 2
 	    @image = Gosu::Image.new('assets/images/background.jpg', tileable: true)
 	    @width = @image.width
 	    @x = 0
-	    @x2 = 900
 	end
 	
 	def draw
 	    @image.draw(@x, 0, 0)
 	    @image.draw(@x - @width, 0, 0)
-	    @image.draw(@x2, 0, 0)
-	    @image.draw(@x2 - @width, 0, 0)		
 	end
 	
 	def scroll!
 	    @x -= SCROLL_SPEED
 	    @x %= @width
-	    @x2 %= @width
 	end
 	
-	def update
-	    draw
-	end
 end

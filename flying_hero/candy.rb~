@@ -1,0 +1,11 @@
+require 'gosu'
+require_relative 'flying_item'
+class Candy < FlyingItem 
+SCROLL_SPEED = 3
+  def self.image_path
+	'assets/images/candy.png'
+  end
+  def scroll!
+	@x -= SCROLL_SPEED
+  end  
+end
