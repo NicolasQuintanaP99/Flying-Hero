@@ -5,7 +5,7 @@ SCROLL_SPEED = 10
   def self.image_path
 	'assets/images/candy.png'
   end
-  def scroll!
+  def move!
 	@x -= SCROLL_SPEED
   end  
 end
