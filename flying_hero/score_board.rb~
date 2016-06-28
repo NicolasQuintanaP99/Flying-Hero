@@ -1,0 +1,14 @@
+require 'gosu'
+class ScoreBoard
+
+   def initialize
+	@score = Gosu::Image.from_text(self, scoreboard, Gosu.default_font_name, 40)
+	@score.draw(0, 0, 1)
+   end
+
+   def scoreboard
+	"0"
+   end
+
+   
+end
