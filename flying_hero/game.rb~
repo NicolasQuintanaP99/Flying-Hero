@@ -15,7 +15,7 @@ class Game < Gosu::Window
   end
   
   def set_asteroid
-	@asteroid = @asteroid && @asteroid.instance_of?(AsteroidBig ?
+	@asteroid = @asteroid && @asteroid.instance_of?(AsteroidBig) ?
 	    AsteroidSmall.new(self) : AsteroidBig.new(self)
   end
 
@@ -43,6 +43,7 @@ class Game < Gosu::Window
 	if (@candy.x < 0)
 	   @candy.reset!(self)
 	end
+	@asteroid.move!
 		
 	  	    
   end

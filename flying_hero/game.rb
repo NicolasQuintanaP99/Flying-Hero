@@ -43,8 +43,10 @@ class Game < Gosu::Window
 	if (@candy.x < 0)
 	   @candy.reset!(self)
 	end
-		
-	  	    
+	@asteroid.move!
+	if (@asteroid.x < 0)
+	   set_asteroid
+	end	  	    
   end
 
 	
