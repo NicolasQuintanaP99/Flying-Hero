@@ -1,6 +1,6 @@
 require 'gosu'
 class FlyingItem
-attr_accessor :x
+attr_accessor :x, :y, :width, :height
   def initialize(window)
 	@image = Gosu::Image.new(self.class.image_path)
 	@width = @image.width
@@ -17,10 +17,5 @@ attr_accessor :x
 	@x = window.width - 100
   end
 
-  def colision
-    if (Hero.x == @x && Hero.y == @y)
-      reset!
-      ScoreBoard.scoreboard += 1
-  end
 
 end

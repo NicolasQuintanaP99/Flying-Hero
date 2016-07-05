@@ -51,7 +51,15 @@ class Game < Gosu::Window
 	if (@asteroid.x < 0)
 	   set_asteroid
 	end
+  if (@hero.bumped_into?(@candy))
+    @candy.reset!(self)
+    @scoreboard.incress_score
   end
+  if (@hero.bumped_into?(@asteroid))
+    @asteroid.reset!(self)
+    @scoreboard.reduce_score
+  end
+end
 
 
 end
