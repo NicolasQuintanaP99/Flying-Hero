@@ -1,17 +1,14 @@
 require 'gosu'
 class ScoreBoard
+attr_accessor :scoreboard
 
-   def initialize(window)
-	@score.draw(0, 0, 1)
+   def initialize
+      @scoreboard=0
    end
 
    def draw
-  	@score = Gosu::Image.from_text(window, scoreboard, Gosu.default_font_name, 40)
+     @score = Gosu::Image.from_text(self, @scoreboard, Gosu.default_font_name, 40)
+     @score.draw(0, 0, 1)
    end
 
-   def scoreboard
-	"0"
-   end
-
-   
 end

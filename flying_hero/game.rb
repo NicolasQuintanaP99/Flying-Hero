@@ -6,7 +6,7 @@ require_relative 'asteroid_big'
 require_relative 'asteroid_small'
 require_relative 'score_board'
 class Game < Gosu::Window
-  def initialize  
+  def initialize
 	super(900, 550, fullscreen: false)
 	self.caption = 'Flying hero!'
 	@background = Background.new
@@ -14,9 +14,9 @@ class Game < Gosu::Window
 	@candy = Candy.new(self)
 	@asteroid_type
 	set_asteroid
-	@scoreboard = ScoreBoard.new(self)
+	@scoreboard = ScoreBoard.new
   end
-  
+
   def set_asteroid
 	@asteroid = @asteroid && @asteroid.instance_of?(AsteroidBig) ?
 	    AsteroidSmall.new(self) : AsteroidBig.new(self)
@@ -27,6 +27,7 @@ class Game < Gosu::Window
 	@hero.draw
 	@candy.draw
 	@asteroid.draw
+  @scoreboard.draw
   end
 
   def button_down(id)
@@ -39,9 +40,9 @@ class Game < Gosu::Window
     	@background.scroll!
     	if button_down?(Gosu::KbUp)
 	   @hero.move_up!
-        elsif button_down?(Gosu::KbDown) 
-	   @hero.move_down!(height) 
-        end  
+        elsif button_down?(Gosu::KbDown)
+	   @hero.move_down!(height)
+        end
         @candy.move!
 	if (@candy.x < 0)
 	   @candy.reset!(self)
@@ -49,10 +50,8 @@ class Game < Gosu::Window
 	@asteroid.move!
 	if (@asteroid.x < 0)
 	   set_asteroid
-	end	  	    
+	end
   end
 
-	
+
 end
-
-

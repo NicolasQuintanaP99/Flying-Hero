@@ -17,4 +17,10 @@ attr_accessor :x
 	@x = window.width - 100
   end
 
+  def colision
+    if (Hero.x == @x && Hero.y == @y)
+      reset!
+      ScoreBoard.scoreboard += 1
+  end
+
 end
