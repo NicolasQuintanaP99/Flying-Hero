@@ -57,7 +57,13 @@ class Game < Gosu::Window
   end
   if (@hero.bumped_into?(@asteroid))
     @asteroid.reset!(self)
-    @scoreboard.reduce_score
+    if @scoreboard.scoreboard > 0
+      if @asteroid.points == 1
+        @scoreboard.reduce_score
+      else
+        @scoreboard.reduce_score_big
+      end
+    end
   end
 end
 

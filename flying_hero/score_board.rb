@@ -14,7 +14,12 @@ attr_accessor :scoreboard
    def incress_score
      @scoreboard += 1
    end
+
    def reduce_score
-     @scoreboard -= 1
+     @scoreboard -= 2
+   end
+
+   def reduce_score_big
+     @scoreboard -= 4
    end
 end
